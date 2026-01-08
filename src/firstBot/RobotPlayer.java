@@ -1,4 +1,4 @@
-package examplefuncsplayer;
+package firstBot;
 
 import battlecode.common.*;
 
@@ -91,7 +91,7 @@ public class RobotPlayer {
                     System.out.println("couldn't move forward on turn " + turnCount + " at location " + rc.getLocation() + " facing " + rc.getDirection());
                     // If we can't move forward, try to turn a random direction.
                     int randomDirection = rng.nextInt(8);
-                    
+
                     if (rc.canTurn()) {
                         rc.turn(directions[randomDirection]);
                     }
