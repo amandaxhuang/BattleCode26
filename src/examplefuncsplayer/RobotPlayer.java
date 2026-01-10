@@ -1,18 +1,19 @@
 package examplefuncsplayer;
 
 import battlecode.common.*;
+import java.util.Random;
 
+/*
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 
 import java.util.EnumMap;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.stream.Stream;
+import java.util.stream.Stream;*/
 
 
 /**
@@ -91,7 +92,7 @@ public class RobotPlayer {
                     System.out.println("couldn't move forward on turn " + turnCount + " at location " + rc.getLocation() + " facing " + rc.getDirection());
                     // If we can't move forward, try to turn a random direction.
                     int randomDirection = rng.nextInt(8);
-                    
+
                     if (rc.canTurn()) {
                         rc.turn(directions[randomDirection]);
                     }
