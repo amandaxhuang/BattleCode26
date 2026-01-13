@@ -16,7 +16,7 @@ public class RobotPlayer {
     }
 
     public static Direction[] directions = Direction.values();
-    public static Random rand = new Random(1092);
+    public static Random rand = new Random();
     public static State currentState = State.INITIALIZE;
 
     public static int turnsSinceCarry = 1000;
@@ -74,7 +74,9 @@ public class RobotPlayer {
                 rc.moveForward();
         } else {
             Direction random = directions[rand.nextInt(directions.length)];
-            rc.turn(random);
+            if (rc.canTurn(random)){
+                rc.turn(random);
+            }
         }
     }
 
@@ -105,7 +107,7 @@ public class RobotPlayer {
         for (MapInfo info: nearbyInfos){
             if (info.getCheeseAmount() > 0){
                 Direction toCheese = rc.getLocation().directionTo(info.getMapLocation());
-                if (rc.canTurn()) {
+                if (rc.canTurn(toCheese)) {
                     rc.turn(toCheese);
                     break;
                 }
@@ -128,7 +130,7 @@ public class RobotPlayer {
         Direction toKing = rc.getLocation().directionTo(kingLoc);
         MapLocation nextLoc = rc.getLocation().add(toKing);
 
-        if (rc.canTurn()){
+        if (rc.canTurn(toKing)){
             rc.turn(toKing);
         }
 

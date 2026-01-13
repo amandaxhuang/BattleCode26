@@ -15,7 +15,7 @@ public class RobotPlayer {
         RETURN_TO_KING_THEN_EXPLORE,
     }
 
-    public static Random rand = new Random(1092);
+    public static Random rand = new Random();
 
     public static State currentState = State.INITIALIZE;
 
